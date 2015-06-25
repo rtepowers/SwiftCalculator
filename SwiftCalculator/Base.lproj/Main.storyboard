@@ -24,7 +24,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSo-ew-6XC">
-                                <rect key="frame" x="16" y="28" width="568" height="43"/>
+                                <rect key="frame" x="136" y="28" width="448" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="448" id="sze-AF-01X"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -229,6 +232,20 @@
                                     <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QTn-tA-phI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVL-CU-jOP">
+                                <rect key="frame" x="24" y="28" width="104" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="NnP-01-5aa"/>
+                                    <constraint firstAttribute="width" constant="104" id="Rys-2S-7MV"/>
+                                </constraints>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.80281929350000003" green="0.274628396" blue="0.3095201118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearDisplay" destination="BYZ-38-t0r" eventType="touchUpInside" id="bXe-62-1ej"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -239,8 +256,10 @@
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="width" secondItem="eyi-O9-i6R" secondAttribute="width" id="2br-gB-h24"/>
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="height" secondItem="27o-fY-e9Y" secondAttribute="height" id="36g-GC-XKD"/>
                             <constraint firstItem="eyi-O9-i6R" firstAttribute="top" secondItem="gSo-ew-6XC" secondAttribute="bottom" constant="8" id="3NK-GR-p9s"/>
+                            <constraint firstItem="JVL-CU-jOP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="5PP-K0-pZt"/>
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="height" secondItem="RQN-XV-xKp" secondAttribute="height" id="5hi-Vd-1DI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hZU-R4-lue" secondAttribute="bottom" constant="8" id="5jr-hW-08U"/>
+                            <constraint firstItem="JVL-CU-jOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6QR-WU-frO"/>
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="width" secondItem="bht-tQ-r7v" secondAttribute="width" id="6rW-ne-eXi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jzp-vj-dYW" secondAttribute="trailing" constant="8" id="7Gd-gW-wpo"/>
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="height" secondItem="bht-tQ-r7v" secondAttribute="height" id="7lj-bq-R98"/>
@@ -290,6 +309,7 @@
                             <constraint firstItem="uDP-rE-AII" firstAttribute="top" secondItem="RVu-su-IAe" secondAttribute="bottom" constant="8" id="Zp7-O0-hjy"/>
                             <constraint firstItem="gSo-ew-6XC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Zxg-KZ-oeS"/>
                             <constraint firstItem="T4K-sc-BtQ" firstAttribute="leading" secondItem="x7g-Xi-Fry" secondAttribute="trailing" constant="8" id="cjn-d1-tqq"/>
+                            <constraint firstItem="gSo-ew-6XC" firstAttribute="leading" secondItem="JVL-CU-jOP" secondAttribute="trailing" constant="8" id="d1s-Ly-WC5"/>
                             <constraint firstItem="fFH-lh-zUr" firstAttribute="width" secondItem="T5K-CW-Lxg" secondAttribute="width" id="dGg-Vl-ZQg"/>
                             <constraint firstItem="Il6-y2-aAk" firstAttribute="leading" secondItem="RVu-su-IAe" secondAttribute="trailing" constant="8" id="dVi-07-h5G"/>
                             <constraint firstItem="99H-eh-CWp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="dbv-5p-FYT"/>
@@ -326,6 +346,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="KtW-vB-WE6"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CMn-g6-YJ7"/>
                             </mask>
                         </variation>
                     </view>

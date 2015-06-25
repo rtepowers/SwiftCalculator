@@ -32,7 +32,9 @@ class ViewController: UIViewController {
 			needsDecimal = false
 		}
 		if (digit == "π") {
-			enter()
+			if (isCurrentlyEntering) {
+				enter()
+			}
 			isCurrentlyPi = true
 		} else if (digit != "π" && isCurrentlyPi) {
 			enter()
@@ -54,6 +56,16 @@ class ViewController: UIViewController {
 		needsDecimal = false
 		operandStack.append(displayValue)
 	}
+	
+	@IBAction func clearDisplay() {
+		operandStack.removeAll(keepCapacity: false)
+		isCurrentlyEntering = false
+		isDecimal = false
+		needsDecimal = false
+		isCurrentlyPi = false
+		displayValue = 0
+	}
+	
 	
 	var displayValue: Double {
 		get {
