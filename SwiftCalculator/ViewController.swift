@@ -25,6 +25,7 @@ class ViewController: UIViewController {
 				return
 			}
 			needsDecimal = true
+			return
 		} else if (digit != "." && needsDecimal) {
 			digit = "." + digit
 			isDecimal = true
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
 	
 	var displayValue: Double {
 		get {
-			return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+			return (display.text! == "π") ? M_PI : NSNumberFormatter().numberFromString(display.text!)!.doubleValue
 		}
 		set {
 			display.text = "\(newValue)"
