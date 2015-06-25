@@ -14,9 +14,29 @@ class ViewController: UIViewController {
 	@IBOutlet weak var display: UILabel!
 	
 	var isCurrentlyEntering: Bool = false
+	var isDecimal: Bool = false
+	var needsDecimal: Bool = false
+	var isCurrentlyPi: Bool = false
 
 	@IBAction func appendDigit(sender: UIButton) {
-		let digit = sender.currentTitle!
+		var digit = sender.currentTitle!
+		if (digit == ".") {
+			if (isDecimal || needsDecimal) {
+				return
+			}
+			needsDecimal = true
+		} else if (digit != "." && needsDecimal) {
+			digit = "." + digit
+			isDecimal = true
+			needsDecimal = false
+		}
+		if (digit == "π") {
+			enter()
+			isCurrentlyPi = true
+		} else if (digit != "π" && isCurrentlyPi) {
+			enter()
+			isCurrentlyEntering = false
+		}
 		if (isCurrentlyEntering) {
 			display.text = display.text! + digit
 		} else {
@@ -29,8 +49,9 @@ class ViewController: UIViewController {
 	
 	@IBAction func enter() {
 		isCurrentlyEntering = false
+		isDecimal = false
+		needsDecimal = false
 		operandStack.append(displayValue)
-		println("operandStack = \(operandStack)")
 	}
 	
 	var displayValue: Double {
@@ -68,6 +89,8 @@ class ViewController: UIViewController {
 		case "÷": performOperation { $1 / $0 }
 		case "✕": performOperation { $0 * $1 }
 		case "√": performOperation { sqrt($0) }
+		case "sin": performOperation { sin($0) }
+		case "cos": performOperation { cos($0) }
 		default: break
 		}
 	}
